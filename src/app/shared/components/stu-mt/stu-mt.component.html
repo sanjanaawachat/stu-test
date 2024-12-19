@@ -1,0 +1,49 @@
+
+<div class="row">
+    <div class="col-md-6 mb-4 mb-md-0">
+        <div class="form-group">
+            <input type="text" name="name" #name id="name" class="form-control">
+            <label for="name"></label>
+        </div>
+        <div class="form-group">
+            <input type="text" name="lname"  #lname id="lname" class="form-control">
+            <label for="lname"></label>
+        </div>
+        <div class="form-group">
+            <input type="text" name="email"  #email id="email" class="form-control">
+            <label for="email"></label>
+        </div>
+        <div class="form-group">
+            <input type="text" name="contact"  #contact id="contact" class="form-control">
+            <label for="email"></label>
+        </div>
+       
+
+        <button (click)="onaddStu()" class="btn btn-info btn-block btn-dark" type="button">Add Student</button>
+    </div>
+
+    <div class="col-md-8 mt-4">
+        <table *ngIf="stuArray.length>0; else nostu" class="table table-bordered">
+       
+          <tr>
+               <th>Srno</th>
+               <th>name</th>
+               <th>lname</th>
+               <th>email</th>
+               <th>contact</th>
+          </tr>
+       <tr *ngFor="let stu of stuArray; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{stu.name}}</td>
+        <td>{{stu.lname}}</td>
+        <td>{{stu.email}}</td>
+        <td>{{stu.contact}}</td>
+    
+       </tr>
+        </table>
+
+        <ng-template #nostu>
+            <p class="alert alert-danger">no stuitems added yet!!!!!!</p>
+        </ng-template>
+    </div>
+</div>
